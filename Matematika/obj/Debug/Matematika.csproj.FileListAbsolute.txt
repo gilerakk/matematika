@@ -1,0 +1,9 @@
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\bin\Debug\Matematika.exe.config
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\bin\Debug\Matematika.exe
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\bin\Debug\Matematika.pdb
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\obj\Debug\Matematika.csprojResolveAssemblyReference.cache
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\obj\Debug\Matematika.Properties.Resources.resources
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\obj\Debug\Matematika.csproj.GenerateResource.Cache
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\obj\Debug\Matematika.exe
+c:\users\radek\documents\visual studio 2015\Projects\Matematika\Matematika\obj\Debug\Matematika.pdb
+C:\Users\Radek\documents\visual studio 2015\Projects\Matematika\Matematika\obj\Debug\Matematika.Form1.resources
