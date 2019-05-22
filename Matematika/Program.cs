@@ -58,7 +58,7 @@ namespace Matematika
         }
         
     }
-
+       
     
     public enum MatematickaOperace
     {
@@ -68,7 +68,5 @@ namespace Matematika
         Deleni
         
     }
-
-    
 
 }

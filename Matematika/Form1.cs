@@ -11,18 +11,21 @@ using System.Diagnostics;
 
 namespace Matematika
 {
-    
+        
     public partial class Form1 : Form
     {
-        Stopwatch stopwatch = new Stopwatch();
-        
+        readonly Stopwatch stopwatch = new Stopwatch();
+                
         MatematickaOperace matOp = MatematickaOperace.Scitani;
+
+        public int zbyvajiciCas = 30;
 
         public void Spravne()
         {
+            zbyvajiciCas = (int)nudStopky.Value;
             lblSpravne.Text = Vysledek.Spravne().ToString();
 
-            pbObrazek.Load("happy.png");
+            pbObrazek.LoadAsync("happy.png");
             pbObrazek.SizeMode = PictureBoxSizeMode.StretchImage;
 
             rtbVysledky.SelectionColor = Color.Green;
@@ -31,25 +34,15 @@ namespace Matematika
 
         public void Spatne()
         {
+            zbyvajiciCas = (int)nudStopky.Value;
             lblSpatne.Text = Vysledek.Spatne().ToString();
 
-            //timer1.Start();
-            pbObrazek.Load("sad.jpg");
+            pbObrazek.LoadAsync("sad.jpg");
             pbObrazek.SizeMode = PictureBoxSizeMode.StretchImage;
-            //timer1.Tick += Timer1_Tick;
-            //timer1.Stop();
-
             
-                        
             rtbVysledky.SelectionColor = Color.Red;
             rtbVysledky.AppendText($"{tbPrvniCislo.Text} {lblZnamenko.Text} {tbDruheCislo.Text} = {tbVysledek.Text}\n");
-        }
-
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            pbObrazek.Load("sad.jpg");
-            pbObrazek.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
+        }              
 
         public void KontrolaCheckboxu()
         {
@@ -178,26 +171,23 @@ namespace Matematika
                     tbDruheCislo.Text = docasneCisloDruhe.ToString();
                 }
             }
-
-            
-                                  
-
         }
 
         public Form1()
         {
+
             InitializeComponent();
 
             timer1.Start();
-            stopwatch.Start();
-                        
+            stopwatch.Start();      
+
             chlbMatematickaOperace.SetItemChecked(0, true);
             chlbMatematickaOperace.SetItemChecked(1, true);
 
             KontrolaCheckboxu();
 
             GenerujVstupniHodnoty();
-
+                        
         }
 
         private void btnGeneruj_Click(object sender, EventArgs e)
@@ -208,8 +198,12 @@ namespace Matematika
         
 
         private void btnSpocitej_Click(object sender, EventArgs e)
-        {
-                        
+        {            
+            if (cbPocitaniNaCas.Checked)
+            {
+                timer2.Start();
+            }
+            
             float vysledekResult = 0;
             if (!float.TryParse(tbVysledek.Text,out vysledekResult))
             {
@@ -254,13 +248,8 @@ namespace Matematika
             tbVysledek.Text = "";
             GenerujVstupniHodnoty();
 
-            
-
-
-
         }
-               
-        
+                
 
         private void tbVysledek_KeyDown(object sender, KeyEventArgs e)
         {
@@ -273,7 +262,6 @@ namespace Matematika
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             lblPocitadlo.Text = $"{stopwatch.Elapsed.Minutes:00}:{stopwatch.Elapsed.Seconds:00}";
         }
 
@@ -303,6 +291,25 @@ namespace Matematika
         private void cbZapornyVysledek_CheckedChanged(object sender, EventArgs e)
         {
             GenerujVstupniHodnoty();
+        }
+
+        //int zbyvajiciCas = int.Parse(lblPocitadloLimit.Text);
+        
+        private void Timer2_Tick_1(object sender, EventArgs e)
+        {
+            
+            if (zbyvajiciCas > 0)
+            {
+                zbyvajiciCas--;
+                lblPocitadloLimit.Text = $"{zbyvajiciCas} sekund";
+            }
+            else
+            {
+                timer2.Stop();
+                Spatne();
+                lblPocitadloLimit.Text = "Čas vypršel!";
+                //MessageBox.Show("Čas vypršel!");                
+            }                        
         }
     }
 }

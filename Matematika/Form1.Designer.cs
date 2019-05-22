@@ -49,9 +49,19 @@
             this.lblPocitadlo = new System.Windows.Forms.Label();
             this.cbZapornyVysledek = new System.Windows.Forms.CheckBox();
             this.cbDeleniCeleCislo = new System.Windows.Forms.CheckBox();
+            this.lblPocitadloLimit = new System.Windows.Forms.Label();
+            this.cbPocitaniNaCas = new System.Windows.Forms.CheckBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.nudStopky = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxHodnota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbObrazek)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStopky)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSpocitej
@@ -220,7 +230,7 @@
             this.rtbVysledky.Location = new System.Drawing.Point(12, 154);
             this.rtbVysledky.Name = "rtbVysledky";
             this.rtbVysledky.ReadOnly = true;
-            this.rtbVysledky.Size = new System.Drawing.Size(387, 252);
+            this.rtbVysledky.Size = new System.Drawing.Size(262, 252);
             this.rtbVysledky.TabIndex = 17;
             this.rtbVysledky.Text = "";
             this.rtbVysledky.TextChanged += new System.EventHandler(this.rtbVysledky_TextChanged);
@@ -243,7 +253,7 @@
             // cbZapornyVysledek
             // 
             this.cbZapornyVysledek.AutoSize = true;
-            this.cbZapornyVysledek.Location = new System.Drawing.Point(215, 13);
+            this.cbZapornyVysledek.Location = new System.Drawing.Point(214, 10);
             this.cbZapornyVysledek.Name = "cbZapornyVysledek";
             this.cbZapornyVysledek.Size = new System.Drawing.Size(202, 17);
             this.cbZapornyVysledek.TabIndex = 19;
@@ -264,11 +274,94 @@
             this.cbDeleniCeleCislo.UseVisualStyleBackColor = true;
             this.cbDeleniCeleCislo.CheckedChanged += new System.EventHandler(this.cbDeleniCeleCislo_CheckedChanged);
             // 
+            // lblPocitadloLimit
+            // 
+            this.lblPocitadloLimit.AutoSize = true;
+            this.lblPocitadloLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblPocitadloLimit.Location = new System.Drawing.Point(26, 105);
+            this.lblPocitadloLimit.Name = "lblPocitadloLimit";
+            this.lblPocitadloLimit.Size = new System.Drawing.Size(87, 24);
+            this.lblPocitadloLimit.TabIndex = 21;
+            this.lblPocitadloLimit.Text = "0 sekund";
+            // 
+            // cbPocitaniNaCas
+            // 
+            this.cbPocitaniNaCas.AutoSize = true;
+            this.cbPocitaniNaCas.Checked = true;
+            this.cbPocitaniNaCas.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbPocitaniNaCas.Location = new System.Drawing.Point(47, 19);
+            this.cbPocitaniNaCas.Name = "cbPocitaniNaCas";
+            this.cbPocitaniNaCas.Size = new System.Drawing.Size(66, 17);
+            this.cbPocitaniNaCas.TabIndex = 23;
+            this.cbPocitaniNaCas.Text = "Zapnuto";
+            this.cbPocitaniNaCas.UseVisualStyleBackColor = true;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick_1);
+            // 
+            // nudStopky
+            // 
+            this.nudStopky.Location = new System.Drawing.Point(47, 41);
+            this.nudStopky.Name = "nudStopky";
+            this.nudStopky.Size = new System.Drawing.Size(45, 20);
+            this.nudStopky.TabIndex = 24;
+            this.nudStopky.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label4.Location = new System.Drawing.Point(16, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 24);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Zbývající čas";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.nudStopky);
+            this.groupBox2.Controls.Add(this.cbPocitaniNaCas);
+            this.groupBox2.Controls.Add(this.lblPocitadloLimit);
+            this.groupBox2.Location = new System.Drawing.Point(309, 154);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(156, 132);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Počítání na čas";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Limit";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(98, 43);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "sekund";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 418);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cbDeleniCeleCislo);
             this.Controls.Add(this.cbZapornyVysledek);
             this.Controls.Add(this.lblPocitadlo);
@@ -289,6 +382,9 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxHodnota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbObrazek)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStopky)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,6 +412,14 @@
         private System.Windows.Forms.Label lblPocitadlo;
         private System.Windows.Forms.CheckBox cbZapornyVysledek;
         private System.Windows.Forms.CheckBox cbDeleniCeleCislo;
+        private System.Windows.Forms.Label lblPocitadloLimit;
+        private System.Windows.Forms.CheckBox cbPocitaniNaCas;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.NumericUpDown nudStopky;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 
