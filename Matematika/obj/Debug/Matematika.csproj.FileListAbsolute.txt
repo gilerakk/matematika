@@ -10,7 +10,6 @@ C:\Users\Radek\documents\visual studio 2015\Projects\Matematika\Matematika\obj\D
 C:\Users\Radek\Source\Repos\matematika\Matematika\bin\Debug\Matematika.exe.config
 C:\Users\Radek\Source\Repos\matematika\Matematika\bin\Debug\Matematika.exe
 C:\Users\Radek\Source\Repos\matematika\Matematika\bin\Debug\Matematika.pdb
-C:\Users\Radek\Source\Repos\matematika\Matematika\obj\Debug\Matematika.csprojAssemblyReference.cache
 C:\Users\Radek\Source\Repos\matematika\Matematika\obj\Debug\Matematika.Form1.resources
 C:\Users\Radek\Source\Repos\matematika\Matematika\obj\Debug\Matematika.Properties.Resources.resources
 C:\Users\Radek\Source\Repos\matematika\Matematika\obj\Debug\Matematika.csproj.GenerateResource.cache
